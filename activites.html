@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Gestion d’Activité Communautaire</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div>
+				<h1>Gestion d’Activité Communautaire</h1>
+				<nav class="nav">
+					<a href="index.html">Accueil</a>
+					<a href="activites.html" class="nav-active">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="activities-main">
+			<div class="activities-header">
+				<div>
+					<h2 class="activities-title">Page d’activités</h2>
+					<p class="activities-subtitle">Barre de recherche</p>
+				</div>
+				<div class="activities-actions">
+					<button type="button" class="show-activities-button" id="open-modal">
+						Ajouter une activité
+					</button>
+					<button type="button" class="delete-activities-button" id="open-delete-modal">
+						Supprimer une activité
+					</button>
+				</div>
+			</div>
+
+			<section class="activities-list" aria-label="Liste des activités">
+				<article class="activity-card" data-activity-id="Art-&-modelage-terre">
+					<img src="img/img_test.jpg" alt="Atelier d’art et modelage terre" />
+					<h3>Art &amp; modelage terre</h3>
+					<p class="activity-date">2026-11-05</p>
+					<p class="activity-short-description">
+						Apprenez les bases du modelage avec de l’argile.
+					</p>
+					<a href="details.html?id=Art-%26-modelage-terre" class="activity-link">Découvrir</a>
+				</article>
+
+				<article class="activity-card" data-activity-id="Peinture-aquarelle">
+					<img src="img/img_test.jpg" alt="Atelier de peinture aquarelle" />
+					<h3>Peinture aquarelle</h3>
+					<p class="activity-date">2026-11-12</p>
+					<p class="activity-short-description">
+						Découvrez les techniques de base de l’aquarelle.
+					</p>
+					<a href="details.html?id=Peinture-aquarelle" class="activity-link">Découvrir</a>
+				</article>
+			</section>
+
+		</main>
+
+		<div class="modal" id="activity-modal" hidden>
+			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+				<button type="button" class="modal-close" id="close-modal" aria-label="Fermer">
+					&times;
+				</button>
+				<h2 id="modal-title">Ajouter une activité</h2>
+				<form id="activity-form" class="activity-form">
+					<label for="activity-name">Nom de l’activité</label>
+					<input type="text" id="activity-name" required />
+
+					<label for="activity-date">Date de l’activité</label>
+					<input type="date" id="activity-date" required />
+
+					<label for="activity-short-description">Description courte de l’activité</label>
+					<textarea id="activity-short-description" rows="2" required></textarea>
+
+					<label for="activity-description">Description complète de l’activité</label>
+					<textarea id="activity-description" rows="4" required></textarea>
+
+					<label for="activity-image">Image</label>
+					<input type="file" id="activity-image" accept="image/*" required />
+
+					<button type="submit" class="save-button">Enregistrer</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="modal" id="delete-modal" hidden>
+			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
+				<button type="button" class="modal-close" id="close-delete-modal" aria-label="Fermer">
+					&times;
+				</button>
+				<h2 id="delete-modal-title">Supprimer une activité</h2>
+				<form id="delete-form">
+					<label for="activity-to-delete">Choisir l’activité à supprimer</label>
+					<select id="activity-to-delete" required></select>
+					<button type="submit" class="delete-confirm-button">Confirmer la suppression</button>
+				</form>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="footer-i">
+				<span class="footer-titre">GAC</span>
+				<nav class="footer-nav">
+					<a href="index.html">Accueil</a>
+					<a href="activites.html">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script src="js/index.js"></script>
+	</body>
+</html>

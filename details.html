@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Détails de l’activité</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div>
+				<h1>Gestion d’Activité Communautaire</h1>
+				<nav class="nav">
+					<a href="index.html">Accueil</a>
+					<a href="activites.html" class="nav-active">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="activity-details" id="activity-details">
+			<p>Chargement de l’activité...</p>
+		</main>
+
+		<div class="modal" id="edit-modal" hidden>
+			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
+				<button type="button" class="modal-close" id="close-edit-modal" aria-label="Fermer">
+					&times;
+				</button>
+				<h2 id="edit-modal-title">Modifier activité</h2>
+				<form id="edit-form" class="activity-form">
+					<label for="edit-name">Nom de l’activité</label>
+					<input type="text" id="edit-name" required />
+					<label for="edit-date">Date de l’activité</label>
+					<input type="date" id="edit-date" required />
+					<label for="edit-short-description">Description courte de l’activité</label>
+					<textarea id="edit-short-description" rows="2" required></textarea>
+					<label for="edit-description">Description complète de l’activité</label>
+					<textarea id="edit-description" rows="4" required></textarea>
+					<label for="edit-image">Image</label>
+					<input type="file" id="edit-image" accept="image/*" />
+					<button type="submit" class="save-button">Enregistrer</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="modal" id="registration-modal" hidden>
+			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="registration-title">
+				<button type="button" class="modal-close" id="close-registration-modal" aria-label="Fermer">
+					&times;
+				</button>
+				<h2 id="registration-title">Inscription à l’activité</h2>
+				<form id="registration-form" class="activity-form">
+					<label for="first-name">Prénom</label>
+					<input type="text" id="first-name" required />
+
+					<label for="last-name">Nom</label>
+					<input type="text" id="last-name" required />
+
+					<label for="permanent-code">Code permanent</label>
+					<input
+						type="text"
+						id="permanent-code"
+						pattern="[A-Za-z0-9]+"
+						title="Le code permanent doit contenir seulement des lettres et des chiffres."
+						required
+					/>
+
+					<label for="email">Courriel</label>
+					<input type="email" id="email" required />
+
+					<button type="submit" class="save-button">S’inscrire</button>
+				</form>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="footer-i">
+				<span class="footer-titre">GAC</span>
+				<nav class="footer-nav">
+					<a href="index.html">Accueil</a>
+					<a href="activites.html">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script src="js/details.js"></script>
+	</body>
+</html>
