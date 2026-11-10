@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Gestion - GAC</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">GAC</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="activites.html">Activité</a></li>
+                <li><a href="rechercher.html">Rechercher</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="gestion.html" class="actif">Gestion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Gestion des activités</h1>
+
+        <section id="formulaire-activite">
+            <h2>Ajouter ou modifier une activité</h2>
+            <form id="form-activite">
+                <label for="titre">Titre</label>
+                <input id="titre" name="titre" type="text" required>
+                <span class="erreur" id="erreur-titre"></span>
+
+                <label for="categorie">Catégorie</label>
+                <select id="categorie" name="categorie" required>
+                    <option value="conference">Conférence</option>
+                    <option value="atelier">Atelier</option>
+                    <option value="sport">Activité sportive</option>
+                    <option value="culture">Activité culturelle</option>
+                    <option value="etude">Séance d'étude</option>
+                </select>
+                <span class="erreur" id="erreur-categorie"></span>
+
+                <label for="date">Date</label>
+                <input id="date" name="date" type="date" required>
+                <span class="erreur" id="erreur-date"></span>
+
+                <label for="lieu">Lieu</label>
+                <input id="lieu" name="lieu" type="text" required>
+                <span class="erreur" id="erreur-lieu"></span>
+
+                <label for="places">Places disponibles</label>
+                <input id="places" name="places" type="number" min="0" required>
+                <span class="erreur" id="erreur-places"></span>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea>
+
+                <button type="submit">Enregistrer</button>
+                <button type="reset">Annuler</button>
+            </form>
+        </section>
+
+        <section id="liste-gestion">
+            <h2>Activités existantes</h2>
+            <!--les ajout restant viendront du JavaScript -->
+            <table>
+                <caption>Liste des activités</caption>
+                <tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Lieu</th><th>Places</th><th>Actions</th></tr>
+                <tr><td>Conférence sur l'IA</td><td>Conférence</td><td>12 novembre 2026</td><td>Salle A-101</td><td>25</td><td><button type="button">Modifier</button> <button type="button">Supprimer</button></td></tr>
+                <tr><td>Atelier de programmation Web</td><td>Atelier</td><td>18 novembre 2026</td><td>Laboratoire B-204</td><td>15</td><td><button type="button">Modifier</button> <button type="button">Supprimer</button></td></tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GAC - Gestion d'Activité Communautaire · Projet I, UQTR</p>
+    </footer>
+    <!-- Le script JavaScript sera ajouté ici -->
+</body>
+</html>
