@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Inscription - GAC</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">GAC</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="activites.html">Activité</a></li>
+                <li><a href="rechercher.html">Rechercher</a></li>
+                <li><a href="inscription.html" class="actif">Inscription</a></li>
+                <li><a href="gestion.html">Gestion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Inscription à une activité</h1>
+
+        <form id="form-inscription">
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" type="text" required>
+            <span class="erreur" id="erreur-nom"></span>
+
+            <label for="prenom">Prénom</label>
+            <input id="prenom" name="prenom" type="text" required>
+            <span class="erreur" id="erreur-prenom"></span>
+
+            <label for="courriel">Courriel</label>
+            <input id="courriel" name="courriel" type="email" placeholder="prenom@exemple.com" required>
+            <span class="erreur" id="erreur-courriel"></span>
+
+            <label for="programme">Programme d'études</label>
+            <select id="programme" name="programme" required>
+                <option value="">-- Choisir --</option>
+                <option value="informatique">Informatique</option>
+                <option value="genie">Génie</option>
+                <option value="gestion">Gestion</option>
+                <option value="autre">Autre</option>
+            </select>
+            <span class="erreur" id="erreur-programme"></span>
+
+            <label for="activite">Activité</label>
+            <select id="activite" name="activite" required>
+                <option value="">-- Choisir --</option>
+                <option value="conference-ia">Conférence sur l'IA</option>
+                <option value="atelier-web">Atelier de programmation Web</option>
+                <option value="tournoi-soccer">Tournoi de soccer intérieur</option>
+            </select>
+            <span class="erreur" id="erreur-activite"></span>
+
+            <label for="commentaires">Commentaires</label>
+            <textarea id="commentaires" name="commentaires"></textarea>
+
+            <input id="conditions" name="conditions" type="checkbox" required>
+            <label for="conditions">J'accepte les conditions de participation</label>
+            <span class="erreur" id="erreur-conditions"></span>
+
+            <button type="submit">S'inscrire</button>
+            <button type="reset">Réinitialiser</button>
+        </form>
+
+        <section id="confirmation">
+            <h2>Confirmation</h2>
+            <!-- Le message de confirmation s'affichera ici -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GAC - Gestion d'Activité Communautaire · Projet I, UQTR</p>
+    </footer>
+    <!-- Le contenue JavaScript sera ajouté ici -->
+</body>
+</html>
