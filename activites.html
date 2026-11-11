@@ -27,7 +27,11 @@
 					<button type="button" class="show-activities-button" id="open-modal">
 						Ajouter une activité
 					</button>
-					<button type="button" class="delete-activities-button" id="open-delete-modal">
+					<button
+						type="button"
+						class="delete-activities-button"
+						id="open-delete-modal"
+					>
 						Supprimer une activité
 					</button>
 				</div>
@@ -37,29 +41,42 @@
 				<article class="activity-card" data-activity-id="Art-&-modelage-terre">
 					<img src="img/img_test.jpg" alt="Atelier d’art et modelage terre" />
 					<h3>Art &amp; modelage terre</h3>
-					<p class="activity-date">2026-11-05</p>
+					<p class="activity-category">Catégorie : Arts et artisanat</p>
 					<p class="activity-short-description">
 						Apprenez les bases du modelage avec de l’argile.
 					</p>
-					<a href="details.html?id=Art-%26-modelage-terre" class="activity-link">Découvrir</a>
+					<a href="details.html?id=Art-%26-modelage-terre" class="activity-link"
+						>Découvrir</a
+					>
 				</article>
 
 				<article class="activity-card" data-activity-id="Peinture-aquarelle">
 					<img src="img/img_test.jpg" alt="Atelier de peinture aquarelle" />
 					<h3>Peinture aquarelle</h3>
-					<p class="activity-date">2026-11-12</p>
+					<p class="activity-category">Catégorie : Arts visuels</p>
 					<p class="activity-short-description">
 						Découvrez les techniques de base de l’aquarelle.
 					</p>
-					<a href="details.html?id=Peinture-aquarelle" class="activity-link">Découvrir</a>
+					<a href="details.html?id=Peinture-aquarelle" class="activity-link"
+						>Découvrir</a
+					>
 				</article>
 			</section>
-
 		</main>
 
 		<div class="modal" id="activity-modal" hidden>
-			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-				<button type="button" class="modal-close" id="close-modal" aria-label="Fermer">
+			<div
+				class="modal-content"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="modal-title"
+			>
+				<button
+					type="button"
+					class="modal-close"
+					id="close-modal"
+					aria-label="Fermer"
+				>
 					&times;
 				</button>
 				<h2 id="modal-title">Ajouter une activité</h2>
@@ -67,13 +84,35 @@
 					<label for="activity-name">Nom de l’activité</label>
 					<input type="text" id="activity-name" required />
 
+					<label for="activity-category">Catégorie</label>
+					<select id="activity-category" required>
+						<option value="">Choisir une catégorie</option>
+						<option value="Arts et artisanat">Arts et artisanat</option>
+						<option value="Arts visuels">Arts visuels</option>
+						<option value="Autre">Autre</option>
+					</select>
+
 					<label for="activity-date">Date de l’activité</label>
 					<input type="date" id="activity-date" required />
 
-					<label for="activity-short-description">Description courte de l’activité</label>
-					<textarea id="activity-short-description" rows="2" required></textarea>
+					<label for="activity-location">Lieu</label>
+					<input type="text" id="activity-location" required />
 
-					<label for="activity-description">Description complète de l’activité</label>
+					<label for="activity-places">Nombre de places</label>
+					<input type="number" id="activity-places" min="1" step="1" required />
+
+					<label for="activity-short-description"
+						>Description courte de l’activité</label
+					>
+					<textarea
+						id="activity-short-description"
+						rows="2"
+						required
+					></textarea>
+
+					<label for="activity-description"
+						>Description complète de l’activité</label
+					>
 					<textarea id="activity-description" rows="4" required></textarea>
 
 					<label for="activity-image">Image</label>
@@ -85,15 +124,27 @@
 		</div>
 
 		<div class="modal" id="delete-modal" hidden>
-			<div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
-				<button type="button" class="modal-close" id="close-delete-modal" aria-label="Fermer">
+			<div
+				class="modal-content"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="delete-modal-title"
+			>
+				<button
+					type="button"
+					class="modal-close"
+					id="close-delete-modal"
+					aria-label="Fermer"
+				>
 					&times;
 				</button>
 				<h2 id="delete-modal-title">Supprimer une activité</h2>
 				<form id="delete-form">
 					<label for="activity-to-delete">Choisir l’activité à supprimer</label>
 					<select id="activity-to-delete" required></select>
-					<button type="submit" class="delete-confirm-button">Confirmer la suppression</button>
+					<button type="submit" class="delete-confirm-button">
+						Confirmer la suppression
+					</button>
 				</form>
 			</div>
 		</div>

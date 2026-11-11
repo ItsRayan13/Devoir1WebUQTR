@@ -1,46 +1,46 @@
 var activities = [];
 var deletedActivities = [];
 
-var activitiesList = document.querySelector(".activities-list");
-var addModal = document.querySelector("#activity-modal");
-var deleteModal = document.querySelector("#delete-modal");
-var deleteList = document.querySelector("#activity-to-delete");
+var activitiesList = document.querySelector( ".activities-list" );
+var addModal = document.querySelector( "#activity-modal" );
+var deleteModal = document.querySelector( "#delete-modal" );
+var deleteList = document.querySelector( "#activity-to-delete" );
 
-var addForm = document.querySelector("#activity-form");
-var deleteForm = document.querySelector("#delete-form");
+var addForm = document.querySelector( "#activity-form" );
+var deleteForm = document.querySelector( "#delete-form" );
 
-var navigation = performance.getEntriesByType("navigation")[0];
-if (navigation && navigation.type === "reload") {
-	sessionStorage.removeItem("activities");
-	sessionStorage.removeItem("deletedActivityIds");
+var navigation = performance.getEntriesByType( "navigation" )[ 0 ];
+if ( navigation && navigation.type === "reload" ) {
+	sessionStorage.removeItem( "activities" );
+	sessionStorage.removeItem( "deletedActivityIds" );
 }
 
-var savedActivities = sessionStorage.getItem("activities");
-var savedDeletedActivities = sessionStorage.getItem("deletedActivityIds");
+var savedActivities = sessionStorage.getItem( "activities" );
+var savedDeletedActivities = sessionStorage.getItem( "deletedActivityIds" );
 
-if (savedActivities) {
-	activities = JSON.parse(savedActivities);
+if ( savedActivities ) {
+	activities = JSON.parse( savedActivities );
 }
 
-if (savedDeletedActivities) {
-	deletedActivities = JSON.parse(savedDeletedActivities);
+if ( savedDeletedActivities ) {
+	deletedActivities = JSON.parse( savedDeletedActivities );
 }
 
-function activityId(name) {
-	return name.trim().replace(/\s+/g, "-");
+function activityId( name ) {
+	return name.trim().replace( /\s+/g, "-" );
 }
 
 function saveActivities() {
-	sessionStorage.setItem("activities", JSON.stringify(activities));
+	sessionStorage.setItem( "activities", JSON.stringify( activities ) );
 }
 
-function createCard(activity) {
-	var card = document.createElement("article");
-	var image = document.createElement("img");
-	var title = document.createElement("h3");
-	var date = document.createElement("p");
-	var shortDescription = document.createElement("p");
-	var link = document.createElement("a");
+function createCard( activity ) {
+	var card = document.createElement( "article" );
+	var image = document.createElement( "img" );
+	var title = document.createElement( "h3" );
+	var category = document.createElement( "p" );
+	var shortDescription = document.createElement( "p" );
+	var link = document.createElement( "a" );
 
 	card.className = "activity-card";
 	card.dataset.activityId = activity.id;
@@ -48,31 +48,31 @@ function createCard(activity) {
 	image.src = activity.image;
 	image.alt = activity.name;
 	title.textContent = activity.name;
-	date.className = "activity-date";
-	date.textContent = activity.date;
+	category.className = "activity-category";
+	category.textContent = "Catégorie : " + ( activity.category || "Autre" );
 	shortDescription.className = "activity-short-description";
 	shortDescription.textContent = activity.shortDescription;
 	link.className = "activity-link";
-	link.href = "details.html?id=" + encodeURIComponent(activity.id);
+	link.href = "details.html?id=" + encodeURIComponent( activity.id );
 	link.textContent = "Découvrir";
 
-	card.append(image, title, date, shortDescription, link);
+	card.append( image, title, category, shortDescription, link );
 	return card;
 }
 
 function showActivities() {
 	var i;
 
-	for (i = 0; i < activities.length; i++) {
-		activitiesList.appendChild(createCard(activities[i]));
+	for ( i = 0; i < activities.length; i++ ) {
+		activitiesList.appendChild( createCard( activities[ i ] ) );
 	}
 
-	for (i = 0; i < deletedActivities.length; i++) {
+	for ( i = 0; i < deletedActivities.length; i++ ) {
 		var card = document.querySelector(
-			'[data-activity-id="' + deletedActivities[i] + '"]',
+			'[data-activity-id="' + deletedActivities[ i ] + '"]',
 		);
 
-		if (card) {
+		if ( card ) {
 			card.remove();
 		}
 	}
@@ -81,115 +81,118 @@ function showActivities() {
 }
 
 function updateDeleteList() {
-	var cards = document.querySelectorAll(".activity-card");
+	var cards = document.querySelectorAll( ".activity-card" );
 	var i;
 
 	deleteList.innerHTML = "";
 
-	for (i = 0; i < cards.length; i++) {
-		var option = document.createElement("option");
-		option.value = cards[i].dataset.activityId;
-		option.textContent = cards[i].querySelector("h3").textContent;
-		deleteList.appendChild(option);
+	for ( i = 0; i < cards.length; i++ ) {
+		var option = document.createElement( "option" );
+		option.value = cards[ i ].dataset.activityId;
+		option.textContent = cards[ i ].querySelector( "h3" ).textContent;
+		deleteList.appendChild( option );
 	}
 
-	document.querySelector("#open-delete-modal").disabled = cards.length === 0;
+	document.querySelector( "#open-delete-modal" ).disabled = cards.length === 0;
 }
 
-function resizeImage(file, callback) {
+function resizeImage( file, callback ) {
 	var reader = new FileReader();
 
 	reader.onload = function () {
 		var image = new Image();
 
 		image.onload = function () {
-			var canvas = document.createElement("canvas");
+			var canvas = document.createElement( "canvas" );
 			var size = 600;
-			var ratio = Math.min(size / image.width, size / image.height, 1);
+			var ratio = Math.min( size / image.width, size / image.height, 1 );
 			var context;
 
 			canvas.width = image.width * ratio;
 			canvas.height = image.height * ratio;
-			context = canvas.getContext("2d");
-			context.drawImage(image, 0, 0, canvas.width, canvas.height);
-			callback(canvas.toDataURL("image/jpeg", 0.7));
+			context = canvas.getContext( "2d" );
+			context.drawImage( image, 0, 0, canvas.width, canvas.height );
+			callback( canvas.toDataURL( "image/jpeg", 0.7 ) );
 		};
 
 		image.src = reader.result;
 	};
 
-	reader.readAsDataURL(file);
+	reader.readAsDataURL( file );
 }
 
-document.querySelector("#open-modal").onclick = function () {
+document.querySelector( "#open-modal" ).onclick = function () {
 	addModal.hidden = false;
 };
 
-document.querySelector("#close-modal").onclick = function () {
+document.querySelector( "#close-modal" ).onclick = function () {
 	addModal.hidden = true;
 };
 
-document.querySelector("#open-delete-modal").onclick = function () {
+document.querySelector( "#open-delete-modal" ).onclick = function () {
 	updateDeleteList();
 	deleteModal.hidden = false;
 };
 
-document.querySelector("#close-delete-modal").onclick = function () {
+document.querySelector( "#close-delete-modal" ).onclick = function () {
 	deleteModal.hidden = true;
 };
 
-addForm.onsubmit = function (event) {
+addForm.onsubmit = function ( event ) {
 	event.preventDefault();
 
-	var name = document.querySelector("#activity-name").value;
-	var imageFile = document.querySelector("#activity-image").files[0];
+	var name = document.querySelector( "#activity-name" ).value;
+	var imageFile = document.querySelector( "#activity-image" ).files[ 0 ];
 
-	resizeImage(imageFile, function (image) {
+	resizeImage( imageFile, function ( image ) {
 		var newActivity = {
-			id: activityId(name),
+			id: activityId( name ),
 			name: name,
-			date: document.querySelector("#activity-date").value,
+			category: document.querySelector( "#activity-category" ).value,
+			date: document.querySelector( "#activity-date" ).value,
+			location: document.querySelector( "#activity-location" ).value,
+			places: Number( document.querySelector( "#activity-places" ).value ),
 			shortDescription: document.querySelector(
 				"#activity-short-description",
 			).value,
-			description: document.querySelector("#activity-description").value,
+			description: document.querySelector( "#activity-description" ).value,
 			image: image,
 		};
 
-		activities.push(newActivity);
+		activities.push( newActivity );
 		saveActivities();
-		activitiesList.appendChild(createCard(newActivity));
+		activitiesList.appendChild( createCard( newActivity ) );
 		updateDeleteList();
 		addForm.reset();
 		addModal.hidden = true;
-	});
+	} );
 };
 
-deleteForm.onsubmit = function (event) {
+deleteForm.onsubmit = function ( event ) {
 	var id;
 	var card;
 	var i;
 
 	event.preventDefault();
 	id = deleteList.value;
-	card = document.querySelector('[data-activity-id="' + id + '"]');
+	card = document.querySelector( '[data-activity-id="' + id + '"]' );
 
-	if (card) {
+	if ( card ) {
 		card.remove();
 	}
 
-	for (i = 0; i < activities.length; i++) {
-		if (activities[i].id === id) {
-			activities.splice(i, 1);
+	for ( i = 0; i < activities.length; i++ ) {
+		if ( activities[ i ].id === id ) {
+			activities.splice( i, 1 );
 			saveActivities();
 		}
 	}
 
-	if (id === "Art-&-modelage-terre" || id === "Peinture-aquarelle") {
-		deletedActivities.push(id);
+	if ( id === "Art-&-modelage-terre" || id === "Peinture-aquarelle" ) {
+		deletedActivities.push( id );
 		sessionStorage.setItem(
 			"deletedActivityIds",
-			JSON.stringify(deletedActivities),
+			JSON.stringify( deletedActivities ),
 		);
 	}
 

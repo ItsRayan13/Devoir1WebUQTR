@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding-bottom: 60px;
@@ -91,6 +95,7 @@ a {
 	position: relative;
 	display: block;
 	width: 25rem;
+	max-width: 100%;
 	object-fit: cover;
 	border-radius: 18px;
 }
@@ -198,7 +203,7 @@ a {
 	font-weight: 700;
 }
 
-.activity-date,
+.activity-category,
 .activity-short-description {
 	margin: 5px 0;
 	font-size: 10px;
@@ -320,7 +325,8 @@ a {
 }
 
 .activity-form input,
-.activity-form textarea {
+.activity-form textarea,
+.activity-form select {
 	padding: 8px;
 	border: 1px solid #dcd9e8;
 	border-radius: 6px;
@@ -445,17 +451,53 @@ a {
 	cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 	.site-header > div {
-		padding: 0 20px;
+		padding: 0 32px;
+	}
+
+	.nav {
+		gap: 16px;
+	}
+
+	.activities-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footer-i {
+		padding: 20px 32px;
+	}
+
+	.footer-nav {
+		gap: 18px;
+	}
+}
+
+@media (max-width: 600px) {
+	body {
+		padding-bottom: 90px;
+	}
+
+	.site-header > div {
+		height: auto;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		padding: 14px 20px;
+	}
+
+	.nav {
+		flex-wrap: wrap;
+		gap: 12px;
 	}
 
 	.site-header h1 {
 		font-size: 15px;
 	}
 
-	.activities-list {
-		grid-template-columns: repeat(2, 1fr);
+	.main {
+		grid-template-columns: 1fr;
+		gap: 16px;
 	}
 
 	.activities-header {
@@ -464,10 +506,59 @@ a {
 	}
 
 	.activities-actions {
+		flex-wrap: wrap;
 		justify-content: flex-start;
 	}
 
 	.footer-i {
-		padding: 20px;
+		flex-wrap: wrap;
+		gap: 12px;
+		padding: 14px 20px;
+	}
+
+	.footer-nav {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.activities-list {
+		grid-template-columns: 1fr;
+	}
+
+	.activities-actions {
+		width: 100%;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.show-activities-button,
+	.delete-activities-button {
+		width: 100%;
+	}
+
+	.modal {
+		padding: 10px;
+	}
+
+	.modal-content {
+		padding: 20px 16px;
+	}
+
+	.registration-group {
+		padding: 12px;
+	}
+
+	.registration-group li {
+		overflow-wrap: anywhere;
+	}
+
+	.activity-details .edit-activity-button,
+	.activity-details .registration-button,
+	.activity-details .activity-link {
+		display: block;
+		width: 100%;
+		margin: 12px 0 0;
 	}
 }
