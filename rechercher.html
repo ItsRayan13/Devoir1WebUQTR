@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Rechercher - GAC</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">GAC</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="activites.html">Activité</a></li>
+                <li><a href="rechercher.html" class="actif">Rechercher</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="gestion.html">Gestion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Rechercher une activité</h1>
+
+        <form id="form-recherche">
+            <label for="mot-cle">Mot-clé</label>
+            <input id="mot-cle" name="mot-cle" type="text" placeholder="Ex. : atelier, conférence">
+
+            <label for="categorie">Catégorie</label>
+            <select id="categorie" name="categorie">
+                <option value="">Toutes</option>
+                <option value="conference">Conférence</option>
+                <option value="atelier">Atelier</option>
+                <option value="sport">Activité sportive</option>
+                <option value="culture">Activité culturelle</option>
+                <option value="etude">Séance d'étude</option>
+            </select>
+
+            <label for="tri">Trier par</label>
+            <select id="tri" name="tri">
+                <option value="date">Date</option>
+                <option value="alpha">Ordre alphabétique</option>
+            </select>
+
+            <button type="submit">Rechercher</button>
+            <button type="reset">Réinitialiser</button>
+        </form>
+
+        <section id="resultats">
+            <h2>Résultats</h2>
+            <!-- Les résultats seront affichés ici par le JavaScript -->
+            <p>Aucune recherche effectuée pour le moment.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GAC - Gestion d'Activité Communautaire · Projet I, UQTR</p>
+    </footer>
+
+    <!-- Le script JavaScript sera ajouté ici -->
+</body>
+</html>
