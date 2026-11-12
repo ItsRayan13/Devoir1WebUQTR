@@ -1,24 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/index.css">
-		<title>GAC - Gestion d'Activité Communautaire</title>
+		<title>Gestion d’Activité Communautaire</title>
+		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
-		<header>
-            <nav>
-                <ul>
-                    <li> <a href="#">Accueil</a></li>
-                    <li><a href="#">Activité</a></li>
-                    <li><a href="#">Rechercher</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <input type="mail">
-
-		<footer>footer</footer>
+		<header class="site-header">
+			<div>
+				<h1>Gestion d’Activité Communautaire</h1>
+				<nav class="nav">
+					<a href="index.html" class="nav-active">Accueil</a>
+					<a href="activites.html">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+			<section class="card">
+				<div class="card-i">
+					<h2 class="label">à propos</h2>
+					<h4 style="font-weight: 100">Notre site porte sur la gestion d'activité communautaire, ici vous avez un ensemble d'activtés a découvrir et auquels vous pouvez participer, vous avez aussi la possiblilité d'ajouter, de modifier ou encore de supprimer une activité </h4>
+				</div>
+			</section>
+			<section class="card-img">
+				<img
+					class="img-activity"
+					src="img/img_test.jpg"
+					alt="Image de l'activité"
+				/>
+			</section>
+			<section class="card-img carrousel">
+				<img
+					id="slide-image"
+					class="img-activity"
+					src="img/img_test.jpg"
+					alt="Image de l'activité"
+				/>
+				<div class="carrousel-boutons">
+					<button id="btn-prec" class="btn-fleche">&#8249;</button>
+					<button id="btn-suiv" class="btn-fleche">&#8250;</button>
+				</div>
+			</section>
+			<section class="card">
+				<div class="card-i" id="slide-texte">
+					<h2 class="label" id="slide-titre">Atelier d’art et modelage terre</h2>
+					<h4 style="font-weight: 100" id="slide-description">
+						Decouvrez l'art du modelage de la terre, il y'a peut etre un artiste en vous...
+					</h4>
+					<h4 style="font-weight: 100">
+						N'hésitez pas à vous inscrire avant qu'il ne soit trop tard !
+					</h4>
+					<a href="" class="btn" id="slide-lien"> Découvrir maintenant</a>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer-i">
+				<span class="footer-titre">GAC</span>
+				<nav class="footer-nav">
+					<a href="index.html">Accueil</a>
+					<a href="activites.html">Activités</a>
+					<a href="inscriptions.html">Inscriptions</a>
+				</nav>
+			</div>
+		</footer>
+		<script src="js/AcceuilCar.js"></script>
 	</body>
 </html>
