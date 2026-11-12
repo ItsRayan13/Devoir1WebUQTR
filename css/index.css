@@ -519,6 +519,11 @@ a {
 	.footer-nav {
 		flex-wrap: wrap;
 		gap: 12px;
+		font-size: 12px;  
+	}
+
+	.btn {                 
+		font-size: 12px;
 	}
 }
 
@@ -561,31 +566,47 @@ a {
 		width: 100%;
 		margin: 12px 0 0;
 	}
+}
+/*****/
+.carrousel {
+	flex-direction: column;
+	align-items: center;
+}
 
-	
-	body {
-		padding-bottom: 0; /* remplace ton 90px */
-	}
 
-	.footer {
-		position: static;
-	}
+#slide-image,
+#slide-texte {
+	transition: opacity 0.4s;
+}
 
-	.card--activity {
-		margin-top: 0;
-	}
 
-	.text,
-	.footer-nav,
-	.activity-card h3,
-	.activity-price,
-	.activity-category,
-	.activity-short-description,
-	.activity-link,
-	.show-activities-button,
-	.delete-activities-button,
-	.edit-activity-button,
-	.registration-button {
-		font-size: 12px;
-	}
+.cache {
+	opacity: 0;
+}
+
+.carrousel-boutons {
+	display: flex;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.btn-fleche {
+	width: 36px;
+	height: 36px;
+	border: 1px solid #e1ddeb;
+	border-radius: 50%;
+	background: #ffffff;
+	color: #1d1160;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.btn-fleche:hover {
+	background: #f3f0fc;
+}
+
+.carrousel {
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
 }
