@@ -562,3 +562,38 @@ a {
 		margin: 12px 0 0;
 	}
 }
+/*****/
+.carrousel {
+	flex-direction: column;
+	align-items: center;
+}
+
+#slide-image,
+#slide-texte {
+	transition: opacity 0.4s;
+}
+
+.cache {
+	opacity: 0;
+}
+
+.carrousel-boutons {
+	display: flex;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.btn-fleche {
+	width: 36px;
+	height: 36px;
+	border: 1px solid #e1ddeb;
+	border-radius: 50%;
+	background: #ffffff;
+	color: #1d1160;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.btn-fleche:hover {
+	background: #f3f0fc;
+}
