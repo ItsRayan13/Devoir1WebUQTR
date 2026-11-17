@@ -37,6 +37,10 @@ a {
 	gap: 22px;
 }
 
+.nav-toggle {
+	display: none;
+}
+
 .nav-active {
 	font-weight: 700;
 	color: #000000;
@@ -48,6 +52,39 @@ a {
 	gap: 27px;
 	align-items: center;
 	padding: 30px 20px 30px;
+}
+
+body.home-page .main {
+	width: 100%;
+	max-width: 1120px;
+	margin: 0 auto;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 24px;
+	align-items: stretch;
+}
+
+body.home-page .card-img {
+	min-width: 0;
+}
+
+body.home-page .img-activity {
+	width: 100%;
+	max-width: 480px;
+	height: auto;
+}
+
+body.home-page .card-i > h4 {
+	margin: 0 0 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+body.home-page .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 40px;
 }
 
 .card {
@@ -71,21 +108,6 @@ a {
 	color: #4a1fd8;
 }
 
-.label--multiline {
-	font-size: 10px;
-	line-height: 26px;
-}
-
-.text {
-	margin: 0;
-	font-size: 11px;
-}
-
-.card--activity {
-	margin-top: 187px;
-	padding-top: 10px;
-}
-
 .card-img {
 	display: flex;
 	justify-content: center;
@@ -98,14 +120,6 @@ a {
 	max-width: 100%;
 	object-fit: cover;
 	border-radius: 18px;
-}
-
-.card__inner--activity {
-	display: flex;
-	flex-direction: column;
-	min-height: 222px;
-	margin-top: -15px;
-	padding: 28px 12px 12px;
 }
 
 .btn {
@@ -197,12 +211,6 @@ a {
 	text-transform: uppercase;
 }
 
-.activity-price {
-	margin: 0 0 8px;
-	font-size: 9px;
-	font-weight: 700;
-}
-
 .activity-category,
 .activity-short-description {
 	margin: 5px 0;
@@ -246,7 +254,6 @@ a {
 .show-activities-button,
 .delete-activities-button {
 	height: 32px;
-	box-sizing: border-box;
 	white-space: nowrap;
 }
 
@@ -291,7 +298,6 @@ a {
 	padding: 25px;
 	border-radius: 18px;
 	background: #ffffff;
-	box-sizing: border-box;
 	text-align: left;
 }
 
@@ -451,44 +457,73 @@ a {
 	cursor: pointer;
 }
 
+/* Début responsive */
 @media (max-width: 900px) {
-	.site-header > div {
-		padding: 0 32px;
+	footer{
+		display: none;
 	}
 
-	.nav {
-		gap: 16px;
+	.site-header > div {
+		height: auto;
+		flex-wrap: wrap;
+		gap: 12px;
+		padding: 12px 32px;
+	}
+
+	.nav-toggle {
+		display: flex;
+		width: 40px;
+		height: 40px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		border: 1px solid #d5d4dc;
+		border-radius: 8px;
+		background: #ffffff;
+		cursor: pointer;
+	}
+
+	.nav-toggle span {
+		width: 20px;
+		height: 2px;
+		border-radius: 2px;
+		background: #1d1160;
+	}
+
+	.site-header .nav {
+		display: none;
+		width: 100%;
+		flex-direction: column;
+		gap: 0;
+		padding-top: 8px;
+		border-top: 1px solid #d5d4dc;
+	}
+
+	.site-header .nav.is-open {
+		display: flex;
+	}
+
+	.site-header .nav a {
+		padding: 10px 0;
+	}
+
+	body.home-page .main {
+		gap: 18px;
+		padding-right: 24px;
+		padding-left: 24px;
 	}
 
 	.activities-list {
 		grid-template-columns: repeat(2, 1fr);
 	}
-
-	.footer-i {
-		padding: 20px 32px;
-	}
-
-	.footer-nav {
-		gap: 18px;
-	}
 }
 
 @media (max-width: 600px) {
-	body {
-		padding-bottom: 90px;
-	}
-
 	.site-header > div {
 		height: auto;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 12px;
-		padding: 14px 20px;
-	}
-
-	.nav {
-		flex-wrap: wrap;
-		gap: 12px;
+		align-items: center;
+		padding: 12px 20px;
 	}
 
 	.site-header h1 {
@@ -498,6 +533,11 @@ a {
 	.main {
 		grid-template-columns: 1fr;
 		gap: 16px;
+	}
+
+	body.home-page .main {
+		grid-template-columns: minmax(0, 1fr);
+		padding: 22px 16px 30px;
 	}
 
 	.activities-header {
@@ -510,24 +550,16 @@ a {
 		justify-content: flex-start;
 	}
 
-	.footer-i {
-		flex-wrap: wrap;
-		gap: 12px;
-		padding: 14px 20px;
-	}
-
-	.footer-nav {
-		flex-wrap: wrap;
-		gap: 12px;
-		font-size: 12px;  
-	}
-
-	.btn {                 
+	.btn {
 		font-size: 12px;
 	}
 }
 
 @media (max-width: 480px) {
+	body.home-page .card {
+		padding: 16px;
+	}
+
 	.activities-list {
 		grid-template-columns: 1fr;
 	}
@@ -567,18 +599,29 @@ a {
 		margin: 12px 0 0;
 	}
 }
-/*****/
+
+@media (max-width: 360px) {
+	body.home-page .main {
+		padding-right: 12px;
+		padding-left: 12px;
+	}
+
+	body.home-page .site-header > div {
+		padding-right: 14px;
+		padding-left: 14px;
+	}
+}
+
 .carrousel {
 	flex-direction: column;
 	align-items: center;
+	gap: 12px;
 }
-
 
 #slide-image,
 #slide-texte {
 	transition: opacity 0.4s;
 }
-
 
 .cache {
 	opacity: 0;
@@ -604,11 +647,3 @@ a {
 .btn-fleche:hover {
 	background: #f3f0fc;
 }
-
-.carrousel {
-	flex-direction: column;
-	align-items: center;
-	gap: 12px;
-}
-
-

@@ -4,12 +4,24 @@
 		<meta charset="UTF-8" />
 		<title>Inscriptions aux activités</title>
 		<link rel="stylesheet" href="css/index.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header class="site-header">
 			<div>
 				<h1>Gestion d’Activité Communautaire</h1>
-				<nav class="nav">
+				<button
+					class="nav-toggle"
+					type="button"
+					aria-label="Ouvrir le menu"
+					aria-expanded="false"
+					aria-controls="home-nav"
+				>
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="nav" id="home-nav">
 					<a href="index.html">Accueil</a>
 					<a href="activites.html">Activités</a>
 					<a href="inscriptions.html" class="nav-active">Inscriptions</a>
@@ -34,5 +46,6 @@
 		</footer>
 
 		<script src="js/inscriptions.js"></script>
+		<script src="js/menu.js"></script>
 	</body>
 </html>

@@ -4,12 +4,24 @@
 		<meta charset="UTF-8" />
 		<title>Gestion d’Activité Communautaire</title>
 		<link rel="stylesheet" href="css/index.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
 		<header class="site-header">
 			<div>
 				<h1>Gestion d’Activité Communautaire</h1>
-				<nav class="nav">
+				<button
+					class="nav-toggle"
+					type="button"
+					aria-label="Ouvrir le menu"
+					aria-expanded="false"
+					aria-controls="home-nav"
+				>
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="nav" id="home-nav">
 					<a href="index.html">Accueil</a>
 					<a href="activites.html" class="nav-active">Activités</a>
 					<a href="inscriptions.html">Inscriptions</a>
@@ -39,7 +51,10 @@
 
 			<section class="activities-list" aria-label="Liste des activités">
 				<article class="activity-card" data-activity-id="Art-&-modelage-terre">
-					<img src="img/Art-et-modelage-terre.jpg" alt="Atelier d’art et modelage terre" />
+					<img
+						src="img/Art-et-modelage-terre.jpg"
+						alt="Atelier d’art et modelage terre"
+					/>
 					<h3>Art &amp; modelage terre</h3>
 					<p class="activity-category">Catégorie : Arts et artisanat</p>
 					<p class="activity-short-description">
@@ -51,7 +66,10 @@
 				</article>
 
 				<article class="activity-card" data-activity-id="Peinture-aquarelle">
-					<img src="img/peinture-aquarelle.jpg" alt="Atelier de peinture aquarelle" />
+					<img
+						src="img/peinture-aquarelle.jpg"
+						alt="Atelier de peinture aquarelle"
+					/>
 					<h3>Peinture aquarelle</h3>
 					<p class="activity-category">Catégorie : Arts visuels</p>
 					<p class="activity-short-description">
@@ -161,5 +179,6 @@
 		</footer>
 
 		<script src="js/index.js"></script>
+		<script src="js/menu.js"></script>
 	</body>
 </html>
